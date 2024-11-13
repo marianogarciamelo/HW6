@@ -1,7 +1,7 @@
 
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Mariano Garcia Melo / Section 001
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
@@ -150,10 +150,12 @@ class PriorityQueue<E, P> {
      */
 
     public Node add(E e, P priority) {
-
-        // YOUR CODE GOES HERE
-        return null;
+        Node node = new Node(e, priority, tree.size());
+        tree.add(node);
+        pullUp(node.idx);
+        return node;
     }
+
 
 
     /**
@@ -167,10 +169,14 @@ class PriorityQueue<E, P> {
      */
 
     public boolean contains(E e) {
-
-        // ADD YOUR CODE HERE
+        for (Node node : tree) {
+            if (node.isValid() && node.value.equals(e)) {
+                return true;
+            }
+        }
         return false;
     }
+
 
 
     /**
